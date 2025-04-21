@@ -105,6 +105,14 @@ footer {
   font-size: 0.9em;
 }
 
+
+  ion-icon {
+  font-size: 15px;
+  color : red;
+  }
+  
+  
+
 /* ------------------------- */
 /* Responsive Design */
 /* ------------------------- */
@@ -155,4 +163,7 @@ footer {
   table {
     min-width: 550px; /* force scroll on very small screens */
   }
+  
+  
+  
 }

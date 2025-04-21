@@ -1,64 +1,43 @@
-body {
-  margin: 0;
-  background-color: #222;
-  color: white;
-  font-family: Arial, sans-serif;
+/* Style de base pour toutes les tailles */
+.card {
+  background: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: none; /* par défaut, pas d'animation */
 }
 
-.main-menu {
-  background-color: #444;
-  padding: 10px 20px;
-}
-
-.main-menu ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  gap: 30px;
-}
-
-.main-menu a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.1em;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: color 0.3s ease;
-}
-
-.main-menu a:hover {
-  color: #ffcc00;
-}
-
-/* Icône taille uniforme */
-ion-icon, .menu-icon {
-  font-size: 22px;
-  width: 22px;
-  height: 22px;
-}
-
-/* ✅ Sur mobile : cacher le texte, garder uniquement l’icône */
-@media (max-width: 768px) {
-  .main-menu .text {
-    display: none;
+/* ✅ 1. Animation uniquement sur ordinateur (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .card {
+    transition: transform 0.3s ease;
   }
 
-  ion-icon {
-    font-size: 26px;
-  }
-
-  /* Si tu utilises des images au lieu d'ionicons */
-  .menu-icon {
-    display: inline-block;
+  .card:hover {
+    transform: scale(1.05);
   }
 }
 
-/* Sur desktop : cacher les images (si utilisées) */
-@media (min-width: 769px) {
-  .menu-icon {
-    display: none;
+/* ✅ 2. Style spécial entre 600px et 900px (ex: tablette) */
+@media (min-width: 600px) and (max-width: 900px) {
+  .card {
+    background-color: #f0f8ff;
+  }
+}
+
+/* ✅ 3. Message spécial en orientation paysage */
+.orientation-message {
+  display: none;
+}
+
+@media (orientation: landscape) {
+  .orientation-message {
+    display: block;
+    text-align: center;
+    background-color: #ffeb3b;
+    color: #333;
+    padding: 10px;
+    font-weight: bold;
   }
 }

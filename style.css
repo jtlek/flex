@@ -1,8 +1,8 @@
-/* BASE */
+/* === BASE === */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #e0f7fa; /* Fond desktop */
+  background-color: #e0f7fa; /* Fond version web */
   padding-bottom: 50px;
 }
 
@@ -34,26 +34,14 @@ nav a {
 
 .card {
   background: white;
-  max-width: 500px;
   margin: 20px auto;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
 }
 
-.action-btn {
-  display: block;
-  margin: 20px auto;
-  background-color: #007bff;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1em;
-  font-weight: bold;
-}
-
-/* ANIMATION sans JS */
+/* === Animation visuelle sur ordinateur seulement === */
 .ball {
   display: block;
   width: 50px;
@@ -69,44 +57,123 @@ nav a {
   transform: translateX(150px);
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  body {
-    background-color: #fff8e1; /* Fond mobile */
-  }
+/* === BOUTON "Lancer le jeu" === */
+/* ✅ Par défaut : visible en version web uniquement, rouge */
+.action-btn {
+  display: block;
+  background-color: red;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 20px auto;
+}
 
+/* ❌ Cacher le bouton sur mobile en portrait */
+@media (max-width: 1024px) and (orientation: portrait) {
   .action-btn {
     display: none;
   }
-
-  .menu-text {
-    display: none;
-  }
-
-  .menu-icon {
-    display: inline;
-  }
 }
 
-/* ORIENTATION paysage */
-@media (orientation: landscape) {
-  .menu-icon {
-    display: none;
-  }
-
-  .menu-text {
-    display: inline;
-  }
-
+/* ✅ Afficher le bouton en paysage mobile/tablette, bleu */
+@media (max-width: 1024px) and (orientation: landscape) {
   .action-btn {
     display: block;
+    background-color: blue;
   }
 }
 
-/* === VERSION WEB : élargir les cartes === */
+/* === MOBILE (portrait et paysage) === */
+@media (max-width: 768px) {
+  body {
+    background-color: #fff8e1; /* fond mobile */
+  }
+
+  .card {
+    max-width: 90%; /* cartes moins larges sur mobile */
+  }
+
+  .menu-text {
+    display: none;
+  }
+
+  .menu-icon {
+    display: inline;
+  }
+
+  .ball {
+    display: none; /* animation supprimée sur mobile */
+  }
+}
+
+/* === TABLETTE entre 600 et 900px === */
+@media (min-width: 600px) and (max-width: 900px) {
+  .card {
+    background-color: #f0f8ff;
+  }
+}
+
+/* === ORDINATEUR : élargir les cartes === */
 @media (min-width: 1024px) {
   .card {
     max-width: 800px;
   }
+
+  .menu-icon {
+    display: inline;
+  }
+
+  .menu-text {
+    display: inline;
+  }
+
+  .ball {
+    display: block;
+  }
 }
 
+
+/* Par défaut (web) */
+.menu-icon {
+  display: none;
+}
+
+.menu-text {
+  display: inline;
+}
+
+/* ✅ Mobile portrait : icône seule */
+@media (max-width: 1024px) and (orientation: portrait) {
+  .menu-icon {
+    display: inline;
+  }
+
+  .menu-text {
+    display: none;
+  }
+}
+
+/* ✅ Mobile paysage : icône + texte */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .menu-icon {
+    display: inline;
+  }
+
+  .menu-text {
+    display: inline;
+  }
+}
+
+/* ❌ Web : supprimer les icônes */
+@media (min-width: 1025px) {
+  .menu-icon {
+    display: none;
+  }
+
+  .menu-text {
+    display: inline;
+  }
+}

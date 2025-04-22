@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Menu Responsive + Animations</title>
+  <title>Carte + Menu + Animations</title>
 
   <!-- Ionicons CDN -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -14,22 +14,21 @@
 </head>
 <body>
 
-  <!-- ✅ Menu Responsive -->
+  <!-- ✅ Menu -->
   <nav>
-    <div class="menu-toggle" id="menu-toggle">
-      <ion-icon name="menu-outline"></ion-icon>
-    </div>
-    <ul id="menu">
+    <ul>
       <li><a href="#"><span class="menu-text">Accueil</span><ion-icon name="home-outline"></ion-icon></a></li>
       <li><a href="#"><span class="menu-text">Jeux</span><ion-icon name="game-controller-outline"></ion-icon></a></li>
       <li><a href="#"><span class="menu-text">Contact</span><ion-icon name="mail-outline"></ion-icon></a></li>
     </ul>
   </nav>
 
+  <!-- ✅ Message orientation paysage -->
   <div class="orientation-message">
     📱 Ce site est optimisé pour l’affichage en portrait.
   </div>
 
+  <!-- ✅ Cartes -->
   <div class="card">
     <h2>The Witcher 3: Wild Hunt</h2>
     <p>Un jeu de rôle immersif dans un monde ouvert plein de monstres, de magie et de choix difficiles.</p>
@@ -40,16 +39,8 @@
     <p>Construisez votre ferme, interagissez avec les habitants et explorez les mystères du village.</p>
   </div>
 
+  <!-- ✅ Bouton animé visible uniquement sur PC -->
   <button class="action-btn">Lancer le jeu</button>
-
-  <!-- ✅ JS pour toggle -->
-  <script>
-    const toggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('active');
-    });
-  </script>
 
 </body>
 </html>

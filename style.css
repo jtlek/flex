@@ -1,0 +1,162 @@
+:root {
+  --bg-desktop: #f0f0f0;
+  --bg-mobile: #222;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-desktop);
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-color: var(--bg-mobile);
+  }
+}
+
+/* === MENU === */
+nav {
+  background-color: #333;
+  padding: 10px 20px;
+  position: relative;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  gap: 30px;
+  transition: all 0.3s ease;
+}
+
+nav li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease;
+}
+
+nav li a:hover {
+  color: #ffcc00;
+}
+
+ion-icon {
+  font-size: 20px;
+}
+
+/* ✅ Hamburger toggle */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ✅ MOBILE Styles */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    display: none;
+    background-color: #333;
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    left: 0;
+    padding: 10px 0;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-text {
+    display: none;
+  }
+
+  ion-icon {
+    font-size: 24px;
+  }
+}
+
+/* === CARTES === */
+.card {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 500px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: none;
+}
+
+@media (min-width: 1024px) {
+  .card {
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .card {
+    background-color: #f0f8ff;
+  }
+}
+
+/* === ORIENTATION === */
+.orientation-message {
+  display: none;
+}
+
+@media (orientation: landscape) {
+  .orientation-message {
+    display: block;
+    text-align: center;
+    background-color: #ffeb3b;
+    color: #333;
+    padding: 10px;
+    font-weight: bold;
+}
+
+/* === BOUTON ANIMÉ === */
+.action-btn {
+  display: inline-block;
+  margin: 20px auto;
+  background-color: #ff5722;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+  display: block;
+  text-align: center;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ✅ Cacher bouton sur mobile */
+@media (max-width: 768px) {
+  .action-btn {
+    display: none;
+  }
+}

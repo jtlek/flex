@@ -3,44 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carte + Menu + Animations</title>
+  <title>Page Jeux Responsive</title>
 
-  <!-- Ionicons CDN -->
+  <!-- Ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-  <!-- Fichier CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ✅ Menu -->
+  <!-- MENU -->
   <nav>
     <ul>
-      <li><a href="#"><span class="menu-text">Accueil</span><ion-icon name="home-outline"></ion-icon></a></li>
-      <li><a href="#"><span class="menu-text">Jeux</span><ion-icon name="game-controller-outline"></ion-icon></a></li>
-      <li><a href="#"><span class="menu-text">Contact</span><ion-icon name="mail-outline"></ion-icon></a></li>
+      <li><a href="#"><span class="menu-text">Accueil</span><ion-icon class="menu-icon" name="home-outline"></ion-icon></a></li>
+      <li><a href="#"><span class="menu-text">Jeux</span><ion-icon class="menu-icon" name="game-controller-outline"></ion-icon></a></li>
+      <li><a href="#"><span class="menu-text">Contact</span><ion-icon class="menu-icon" name="mail-outline"></ion-icon></a></li>
     </ul>
   </nav>
 
-  <!-- ✅ Message orientation paysage -->
-  <div class="orientation-message">
-    📱 Ce site est optimisé pour l’affichage en portrait.
-  </div>
-
-  <!-- ✅ Cartes -->
+  <!-- CARTES DE JEUX -->
   <div class="card">
-    <h2>The Witcher 3: Wild Hunt</h2>
-    <p>Un jeu de rôle immersif dans un monde ouvert plein de monstres, de magie et de choix difficiles.</p>
+    <h2>The Witcher 3</h2>
+    <p>Un jeu d'aventure épique dans un monde fantastique.</p>
   </div>
 
   <div class="card">
-    <h2>Stardew Valley</h2>
-    <p>Construisez votre ferme, interagissez avec les habitants et explorez les mystères du village.</p>
+    <h2>GTA V</h2>
+    <p>Vivez la vie de criminel à Los Santos dans ce monde ouvert explosif.</p>
   </div>
 
-  <!-- ✅ Bouton animé visible uniquement sur PC -->
+  <div class="card">
+    <h2>Minecraft</h2>
+    <p>Construisez, explorez, survivez dans un monde cubique infini.</p>
+  </div>
+
+  <!-- BOUTON -->
   <button class="action-btn">Lancer le jeu</button>
+
+  <!-- ANIMATION SANS JS -->
+  <input type="checkbox" id="animateToggle" checked hidden>
+  <label for="animateToggle" class="ball"></label>
 
 </body>
 </html>

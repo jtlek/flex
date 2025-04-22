@@ -1,23 +1,11 @@
-:root {
-  --bg-desktop: #f0f0f0;
-  --bg-mobile: #222;
-}
-
+/* BASE */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: var(--bg-desktop);
-  transition: background-color 0.3s ease;
+  background-color: #e0f7fa; /* Fond desktop */
+  padding-bottom: 50px;
 }
 
-/* ✅ Fond en version mobile */
-@media (max-width: 768px) {
-  body {
-    background-color: var(--bg-mobile);
-  }
-}
-
-/* === MENU === */
 nav {
   background-color: #333;
   padding: 10px 20px;
@@ -27,107 +15,98 @@ nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
+  gap: 20px;
   padding: 0;
   margin: 0;
-  gap: 30px;
 }
 
-nav li a {
-  text-decoration: none;
+nav a {
   color: white;
-  font-size: 1.1em;
+  text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 6px;
-  transition: color 0.3s ease;
+  gap: 8px;
 }
 
-nav li a:hover {
-  color: #ffcc00;
+.menu-icon {
+  font-size: 22px;
 }
 
-ion-icon {
-  font-size: 20px;
-}
-
-/* ✅ Cacher le texte du menu sur mobile */
-@media (max-width: 768px) {
-  nav li .menu-text {
-    display: none;
-  }
-
-  ion-icon {
-    font-size: 24px;
-  }
-}
-
-/* === CARTES === */
 .card {
   background: white;
-  padding: 20px;
-  margin: 20px auto;
-  border-radius: 10px;
   max-width: 500px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: none;
-}
-
-@media (min-width: 1024px) {
-  .card {
-    transition: transform 0.3s ease;
-  }
-
-  .card:hover {
-    transform: scale(1.05);
-  }
-}
-
-@media (min-width: 600px) and (max-width: 900px) {
-  .card {
-    background-color: #f0f8ff;
-  }
-}
-
-/* === ORIENTATION === */
-.orientation-message {
-  display: none;
-}
-
-@media (orientation: landscape) {
-  .orientation-message {
-    display: block;
-    text-align: center;
-    background-color: #ffeb3b;
-    color: #333;
-    padding: 10px;
-    font-weight: bold;
-}
-
-/* === BOUTON ANIMÉ (PC) === */
-.action-btn {
-  display: inline-block;
   margin: 20px auto;
-  background-color: #ff5722;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn {
+  display: block;
+  margin: 20px auto;
+  background-color: #007bff;
   color: white;
   padding: 12px 20px;
-  font-size: 1em;
   border: none;
   border-radius: 8px;
-  cursor: pointer;
-  animation: pulse 1.5s infinite;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+/* ANIMATION sans JS */
+.ball {
   display: block;
-  text-align: center;
+  width: 50px;
+  height: 50px;
+  background: #ff5722;
+  border-radius: 50%;
+  margin: 30px auto;
+  transition: transform 2s ease-in-out;
+  transform: translateX(0);
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.05); opacity: 0.8; }
-  100% { transform: scale(1); opacity: 1; }
+#animateToggle:checked + .ball {
+  transform: translateX(150px);
 }
 
-/* ✅ Cacher bouton sur mobile */
+/* MOBILE */
 @media (max-width: 768px) {
+  body {
+    background-color: #fff8e1; /* Fond mobile */
+  }
+
   .action-btn {
     display: none;
   }
+
+  .menu-text {
+    display: none;
+  }
+
+  .menu-icon {
+    display: inline;
+  }
 }
+
+/* ORIENTATION paysage */
+@media (orientation: landscape) {
+  .menu-icon {
+    display: none;
+  }
+
+  .menu-text {
+    display: inline;
+  }
+
+  .action-btn {
+    display: block;
+  }
+}
+
+/* === VERSION WEB : élargir les cartes === */
+@media (min-width: 1024px) {
+  .card {
+    max-width: 800px;
+  }
+}
+
